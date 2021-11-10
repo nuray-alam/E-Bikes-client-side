@@ -13,33 +13,34 @@ const MakeAdmin = () => {
     }
     const handleAdminSubmit = e => {
         const user = { email };
-        // fetch(`https://serene-river-83100.herokuapp.com/users/admin`, {
-        //     method: "PUT",
-        //     headers: {
-        //         'authorization': `Bearer ${token}`,
-        //         'content-type': 'application/json'
-        //     },
-        //     body: JSON.stringify(user)
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         if (data.modifiedCount) {
-        //             console.log(data);
-        //             setSuccess(true);
-        //         }
+        fetch(`http://localhost:5000/users/admin`, {
+            method: "PUT",
+            headers: {
+                'authorization': `Bearer ${token}`,
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount) {
+                    console.log(data);
+                    setSuccess(true);
+                }
 
-        //     })
+            })
         e.preventDefault();
     }
     return (
         <div>
-            <h2>make an admin</h2>
+            <h2>Make An Admin</h2>
             <form onSubmit={handleAdminSubmit}>
                 <TextField label="Email"
                     type="email"
                     onBlur={handleOnBlur}
                     variant="standard" />
-                <Button type="submit" variant="contained">Make Admin</Button>
+                <br />
+                <Button type="submit" className="bg-dark my-4" variant="contained">Make Admin</Button>
             </form>
             {success && <Alert severity="success">Made Admin successfully</Alert>}
         </div>

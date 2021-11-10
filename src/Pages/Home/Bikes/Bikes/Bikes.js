@@ -28,8 +28,7 @@ const Bikes = () => {
 
     return (
         <div className="bikes-section my-5 w-75 mx-auto">
-            <h2 className="fw-bolder text-center text-success mb-5">Our Bikes</h2>
-            <h2>Total bikes: {bikes.length}</h2>
+            <h2 className="fw-bolder text-center text-dark mb-5">Our Bikes</h2>
             <Row xs={1} md={2} lg={2} xl={3} className="g-3">
                 {
                     bikes.map(bike => <Bike key={bike._id} bike={bike}></Bike>)

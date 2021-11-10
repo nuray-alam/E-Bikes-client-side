@@ -1,10 +1,23 @@
 import React from 'react';
 import { Col } from 'react-bootstrap';
+import { useHistory } from 'react-router';
 import './Bike.css';
 
 const Bike = (props) => {
 
+
     const { name, imgUrl, price, description, _id } = props.bike;
+
+
+    let history = useHistory();
+
+
+    const handleOrderButton = id => {
+
+        const url = `/order/${id}`;
+        history.push(url);
+
+    }
     return (
         <Col>
             <div className="bike text-justify py-2 px-3 card h-100 d-flex flex-column justify-content-between">
@@ -16,7 +29,7 @@ const Bike = (props) => {
                     <p>{description}</p>
                 </div>
                 <div>
-                    {/* <button onClick={() => handleOrderButton(_id)} className="btn btn-outline-success">Book Now</button> */}
+                    <button onClick={() => handleOrderButton(_id)} className="btn btn-dark">Buy Now</button>
                 </div>
             </div>
         </Col>

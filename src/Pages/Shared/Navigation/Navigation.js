@@ -30,9 +30,9 @@ const Header = () => {
                         user.email && <span className="user-name me-2 fs-6" style={{ color: "white" }}>{user.displayName ? user.displayName : ''}</span>
                     }
                     {/* conditional rendering for login and logout button */}
-                    {user.email ? <button onClick={logOut} className="btn btn-outline-dark text-white">Log Out</button>
+                    {user.email ? <button onClick={logOut} className="btn btn-outline-primary text-white">Log Out</button>
                         :
-                        <NavLink as={Link} to="/Login" activeStyle={{ fontWeight: "bold", color: "#91BFFF", borderBottom: "1px solid #91BFFF" }} className="btn btn-primary text-decoration-none header-link me-3">Login</NavLink>
+                        <NavLink as={Link} to="/Login" activeStyle={{ fontWeight: "bold", color: "#91BFFF", borderBottom: "1px solid #91BFFF" }} className="btn btn-outline-primary text-decoration-none header-link me-3">Login</NavLink>
                     }
                 </Navbar.Collapse>
             </Container>

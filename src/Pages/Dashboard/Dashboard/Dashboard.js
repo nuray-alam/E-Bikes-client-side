@@ -48,13 +48,17 @@ function Dashboard(props) {
         <div>
             <Toolbar className="bg-dark" ><span className="text-white fs-5">E-Bikes</span></Toolbar>
             <Divider />
+            <Link className="text-decoration-none text-dark" to={`${url}`}><Button color="inherit">Dashboard</Button></Link>
+            <Divider />
+            {admin ? <Link className="text-decoration-none text-dark"  to={`${url}/addBike`}><Button color="inherit">Add a New Bike</Button></Link> : <Link to={`${url}`}><Button color="inherit">My Orders</Button></Link>}
+            <Divider />
+            {admin ? <Link className="text-decoration-none text-dark"  to={`${url}/manageOrders`}><Button color="inherit">Manage All Orders</Button></Link> : <Link to={`${url}`}><Button color="inherit">My Orders</Button></Link>}
+            <Divider />
 
-            {admin ? <Link to={`${url}/addBike`}><Button color="inherit">Add a New Bike</Button></Link> : <Link to={`${url}`}><Button color="inherit">My Orders</Button></Link>}
-            <Link to={`${url}`}><Button color="inherit">Dashboard</Button></Link>
             {admin && <Box>
-                <Link to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button></Link>
-                <Link to={`${url}/addDoctor`}><Button color="inherit">Add Doctor</Button></Link>
+                <Link  className="text-decoration-none text-dark" to={`${url}/makeAdmin`}><Button color="inherit">Make Admin</Button></Link>
             </Box>}
+            <Divider />
 
         </div >
     );
@@ -142,6 +146,9 @@ function Dashboard(props) {
                         </AdminRoute>
                         <AdminRoute path={`${path}/makeAdmin`}>
                             <MakeAdmin></MakeAdmin>
+                        </AdminRoute>
+                        <AdminRoute path={`${path}/manageOrders`}>
+                            <ManageOrders></ManageOrders>
                         </AdminRoute>
                     </Switch>
 

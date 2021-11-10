@@ -8,14 +8,16 @@ import Register from './Pages/Login/Register/Register';
 import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute'
 import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import ExploreMore from './Pages/Home/ExploreMore/ExploreMore';
+import OrderNow from './Pages/OrderNow/OrderNow/OrderNow';
+import OrderConfirmed from './Pages/OrderNow/OrderConfirmed/OrderConfirmed';
 
 function App() {
   return (
     <div className="App">
       <AuthProvider>
         <Router>
-      <Switch>
-      <Route exact path='/'>
+          <Switch>
+            <Route exact path='/'>
               <Home></Home>
             </Route>
             <Route path='/home'>
@@ -33,7 +35,13 @@ function App() {
             <Route path="/exploreMore">
               <ExploreMore></ExploreMore>
             </Route>
-      </Switch>
+            <PrivateRoute path="/order/:id">
+              <OrderNow></OrderNow>
+            </PrivateRoute>
+            <PrivateRoute path='/orderConfirmed'>
+              <OrderConfirmed></OrderConfirmed>
+            </PrivateRoute>
+          </Switch>
         </Router>
       </AuthProvider>
     </div>
