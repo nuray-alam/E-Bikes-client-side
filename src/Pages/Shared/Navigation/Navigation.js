@@ -15,6 +15,8 @@ const Header = () => {
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto fs-6">
                         <NavLink as={Link} to="/home" activeStyle={{ color: "#91BFFF" }} className="text-decoration-none header-link me-3">Home</NavLink>
+                        <NavLink as={Link} to="/exploreMore" activeStyle={{ color: "#91BFFF" }} className="text-decoration-none header-link me-3">Explore More</NavLink>
+                        {user.email && <NavLink as={Link} to="/Dashboard" activeStyle={{ color: "#91BFFF" }} className="text-decoration-none header-link me-3">Dashboard</NavLink>}
                         {/* conditional rendering for nav links */}
                         {/* {user.email && <NavLink as={Link} to="/myOrders" activeStyle={{ color: "#91BFFF" }} className="text-decoration-none header-link me-3">My Orders</NavLink>}
                         {user.email && <NavLink as={Link} to="/manageOrders" activeStyle={{ color: "#91BFFF" }} className="text-decoration-none header-link me-3">Manage Orders</NavLink>}
