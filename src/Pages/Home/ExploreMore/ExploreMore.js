@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Row, Spinner } from 'react-bootstrap';
 import Bike from '../Bikes/Bike/Bike';
 import Navigation from '../../Shared/Navigation/Navigation'
+import Footer from '../../Shared/Footer/Footer';
 
 const ExploreMore = () => {
     const [bikes, setBikes] = useState([]);
@@ -9,7 +10,7 @@ const ExploreMore = () => {
 
     //getting all the packages
     useEffect(() => {
-        fetch('http://localhost:5000/bikes')
+        fetch('https://immense-plateau-20554.herokuapp.com/bikes')
             .then(res => res.json())
             .then(data => {
                 setBikes(data)
@@ -29,18 +30,18 @@ const ExploreMore = () => {
 
     return (
         <div>
-             <Navigation></Navigation>
-             <div className="bikes-section my-5 w-75 mx-auto">
-            <h2 className="fw-bolder text-center text-success mb-5">Our All Bikes</h2>
-            <h2>Total bikes: {bikes.length}</h2>
-            <Row xs={1} md={2} lg={2} xl={3} className="g-3">
-                {
-                    bikes.map(bike => <Bike key={bike._id} bike={bike}></Bike>)
-                }
-            </Row>
+            <Navigation></Navigation>
+            <div className="bikes-section my-5 w-75 mx-auto">
+                <h2 className="fw-bolder text-center text-dark mb-5">Our All Bikes</h2>
+                <Row xs={1} md={2} lg={2} xl={3} className="g-3">
+                    {
+                        bikes.map(bike => <Bike key={bike._id} bike={bike}></Bike>)
+                    }
+                </Row>
+            </div>
+            <Footer></Footer>
         </div>
-        </div>
-      
+
     );
 };
 

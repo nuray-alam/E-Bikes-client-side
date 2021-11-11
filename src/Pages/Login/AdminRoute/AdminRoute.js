@@ -9,6 +9,7 @@ const AdminRoute = ({ children, ...rest }) => {
     if (isLoading) {
         return <Spinner></Spinner>
     }
+
     return (
         <Route
             {...rest}

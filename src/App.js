@@ -10,6 +10,7 @@ import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
 import ExploreMore from './Pages/Home/ExploreMore/ExploreMore';
 import OrderNow from './Pages/OrderNow/OrderNow/OrderNow';
 import OrderConfirmed from './Pages/OrderNow/OrderConfirmed/OrderConfirmed';
+import NotFound from './Pages/NotFound/NotFound';
 
 function App() {
   return (
@@ -41,6 +42,9 @@ function App() {
             <PrivateRoute path='/orderConfirmed'>
               <OrderConfirmed></OrderConfirmed>
             </PrivateRoute>
+            <Route path="*">
+              <NotFound></NotFound>
+            </Route>
           </Switch>
         </Router>
       </AuthProvider>

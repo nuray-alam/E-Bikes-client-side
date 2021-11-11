@@ -4,16 +4,11 @@ import { useHistory } from 'react-router';
 import './Bike.css';
 
 const Bike = (props) => {
-
-
     const { name, imgUrl, price, description, _id } = props.bike;
-
-
     let history = useHistory();
 
-
+    //Order button event handler
     const handleOrderButton = id => {
-
         const url = `/order/${id}`;
         history.push(url);
 
@@ -25,7 +20,7 @@ const Bike = (props) => {
                 <div>
                     <img src={imgUrl} className="img-fluid" alt="" />
                     <h4 className="text-dark mt-1">{name}</h4>
-                    <p>$ {price}/-</p>
+                    <h5>Price: $ {price}/-</h5>
                     <p>{description}</p>
                 </div>
                 <div>

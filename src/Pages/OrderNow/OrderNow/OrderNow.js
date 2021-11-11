@@ -3,6 +3,7 @@ import { Card, Col, Row } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useHistory, useParams } from 'react-router';
 import useAuth from '../../../hooks/useAuth';
+import Footer from '../../Shared/Footer/Footer';
 import Navigation from '../../Shared/Navigation/Navigation';
 
 const OrderNow = () => {
@@ -14,7 +15,7 @@ const OrderNow = () => {
 
     //getting bike detail by id
     useEffect(() => {
-        fetch(`http://localhost:5000/bike/${id}`)
+        fetch(`https://immense-plateau-20554.herokuapp.com/bike/${id}`)
             .then(res => res.json())
             .then(data => {
                 setBikeInfo(data);
@@ -27,8 +28,9 @@ const OrderNow = () => {
     const onSubmit = data => {
         const order = data;
         order.bikeId = id;
+        order.status = "pending";
         // positing the data to the server and db
-        fetch('http://localhost:5000/proceedOrder', {
+        fetch('https://immense-plateau-20554.herokuapp.com/proceedOrder', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -63,7 +65,7 @@ const OrderNow = () => {
                     </Card>
                 </Col>
                 <Col className="mx-auto">
-                    <div className="addPackages w-75 mx-auto my-5 border p-5">
+                    <div className=" w-75 mx-auto my-5 border p-5">
                         <h2 className="text-dark text-center fw-bolder">Order Process</h2>
                         <form onSubmit={handleSubmit(onSubmit)} className="d-flex flex-column">
 
@@ -93,6 +95,7 @@ const OrderNow = () => {
                 </Col>
 
             </Row>
+            <Footer></Footer>
         </div>
 
 

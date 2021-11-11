@@ -1,0 +1,10 @@
+.footer-container {
+  background-color: #212529;
+}
+.footer-container ul {
+  list-style: none;
+}
+.footer-container li {
+  font-size: smaller;
+  cursor: pointer;
+}

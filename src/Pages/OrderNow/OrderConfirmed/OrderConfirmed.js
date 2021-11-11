@@ -1,5 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router';
+import Footer from '../../Shared/Footer/Footer';
 import Navigation from '../../Shared/Navigation/Navigation';
 
 const OrderConfirmed = () => {
@@ -13,6 +14,7 @@ const OrderConfirmed = () => {
             <br />
             <button onClick={() => history.push('/home')} className="btn btn-dark">Back Home</button>
         </div>
+        <Footer></Footer>
       </div>
     );
 };

@@ -8,12 +8,13 @@ const MakeAdmin = () => {
     const { token } = useAuth();
 
     const handleOnBlur = e => {
-
         setEmail(e.target.value)
     }
+
+    // Event handler for request to make admin
     const handleAdminSubmit = e => {
         const user = { email };
-        fetch(`http://localhost:5000/users/admin`, {
+        fetch(`https://immense-plateau-20554.herokuapp.com/users/admin`, {
             method: "PUT",
             headers: {
                 'authorization': `Bearer ${token}`,
@@ -27,13 +28,16 @@ const MakeAdmin = () => {
                     console.log(data);
                     setSuccess(true);
                 }
+                else {
+                    alert("couldn't find the user");
+                }
 
             })
         e.preventDefault();
     }
     return (
         <div>
-            <h2>Make An Admin</h2>
+            <h2>Make An <span className="text-warning">Admin</span></h2>
             <form onSubmit={handleAdminSubmit}>
                 <TextField label="Email"
                     type="email"

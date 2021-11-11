@@ -5,11 +5,12 @@ const AddBike = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { token } = useAuth();
 
+
     // onSubmit event handler
     const onSubmit = data => {
         const newBike = data;
         console.log("newBike", newBike)
-        const url = 'http://localhost:5000/bikes';
+        const url = 'https://immense-plateau-20554.herokuapp.com/bikes';
         fetch(url, {
             method: 'POST',
             headers: {

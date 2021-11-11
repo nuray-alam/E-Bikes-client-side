@@ -1,35 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { Row, Spinner } from 'react-bootstrap';
-import useAuth from '../../../hooks/useAuth';
-import Order from '../Order/Order';
+import ManageBike from '../ManageBike/ManageBike';
 
-const MyOrders = () => {
-
-    const { user, token } = useAuth();
-    const [myOrders, setMyOrders] = useState([]);
+const ManageBikes = () => {
+    const [bikes, setBikes] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-
-
-    //getting orders
+    // getting all orders
     useEffect(() => {
-        fetch(`https://immense-plateau-20554.herokuapp.com/myOrders/${user.email}`)
+        fetch('https://immense-plateau-20554.herokuapp.com/bikes')
             .then(res => res.json())
             .then(data => {
-
-                setMyOrders(data);
+                setBikes(data);
                 setIsLoading(false);
-
             })
-    }, [user.email, token])
+    }, [])
 
-
-
-    //handle cancel order button
-    const handleCancelOrder = id => {
-        let isAgreeToCancel = window.confirm("Are you sure cancel the order?");
+    // handle delete bike
+    const handleDeleteBike = id => {
+        let isAgreeToCancel = window.confirm("Are you sure to delete the bike?");
         if (isAgreeToCancel === true) {
-            const url = `https://immense-plateau-20554.herokuapp.com/orders/${id}`;
+            const url = `https://immense-plateau-20554.herokuapp.com/bike/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -37,8 +28,8 @@ const MyOrders = () => {
                 .then(result => {
                     if (result.deletedCount > 0) {
                         alert("Deleted successfully");
-                        const remainingOrders = myOrders?.filter(ord => ord._id !== id);
-                        setMyOrders(remainingOrders);
+                        const remainingBikes = bikes?.filter(bike => bike._id !== id);
+                        setBikes(remainingBikes);
                     }
                 })
         }
@@ -56,20 +47,21 @@ const MyOrders = () => {
         </div>
     }
 
+
     return (
         <div className="packages-section my-5 w-75 mx-auto">
-            <h2 className="fw-bolder text-center mb-5">My <span className="text-warning">Orders</span></h2>
+            <h2 className="fw-bolder text-center text-dark mb-5">All Orders</h2>
             <Row xs={1} md={2} lg={2} xl={3} className="g-3">
                 {
-                    myOrders?.map(order => <Order
-                        key={order._id}
-                        isAdmin={false}
-                        order={order}
-                        handleCancelOrder={handleCancelOrder}></Order>)
+                    bikes.map(bike => <ManageBike
+                        key={bike._id}
+                        bike={bike}
+                        handleDeleteBike={handleDeleteBike}
+                    ></ManageBike>)
                 }
             </Row>
         </div>
     );
 };
 
-export default MyOrders;
+export default ManageBikes;
