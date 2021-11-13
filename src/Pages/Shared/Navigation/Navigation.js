@@ -16,7 +16,7 @@ const Header = () => {
                     <Nav className="me-auto fs-6">
                         <NavLink as={Link} to="/home" activeStyle={{ color: "#91BFFF" }} className="text-decoration-none header-link me-3">Home</NavLink>
                         <NavLink as={Link} to="/exploreMore" activeStyle={{ color: "#91BFFF" }} className="text-decoration-none header-link me-3">Explore More</NavLink>
-                        {user.email && <NavLink as={Link} to="/Dashboard" activeStyle={{ color: "#91BFFF" }} className="text-decoration-none header-link me-3">Dashboard</NavLink>}
+                        {user.email && <NavLink as={Link} to="/dashboard" activeStyle={{ color: "#91BFFF" }} className="text-decoration-none header-link me-3">Dashboard</NavLink>}
 
 
                     </Nav>
