@@ -14,7 +14,7 @@ const MakeAdmin = () => {
     // Event handler for request to make admin
     const handleAdminSubmit = e => {
         const user = { email };
-        fetch(`https://immense-plateau-20554.herokuapp.com/users/admin`, {
+        fetch(`https://e-bikes-server-side.onrender.com/users/admin`, {
             method: "PUT",
             headers: {
                 'authorization': `Bearer ${token}`,

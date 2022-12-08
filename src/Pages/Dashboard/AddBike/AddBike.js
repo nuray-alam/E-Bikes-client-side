@@ -10,7 +10,7 @@ const AddBike = () => {
     const onSubmit = data => {
         const newBike = data;
         console.log("newBike", newBike)
-        const url = 'https://immense-plateau-20554.herokuapp.com/bikes';
+        const url = 'https://e-bikes-server-side.onrender.com/bikes';
         fetch(url, {
             method: 'POST',
             headers: {

@@ -11,7 +11,7 @@ const ManageOrders = () => {
 
     // getting all orders
     useEffect(() => {
-        fetch('https://immense-plateau-20554.herokuapp.com/orders', {
+        fetch('https://e-bikes-server-side.onrender.com/orders', {
             headers: {
                 'authorization': `Bearer ${token}`
             }
@@ -27,7 +27,7 @@ const ManageOrders = () => {
     const handleCancelOrder = id => {
         let isAgreeToCancel = window.confirm("Are you sure cancel the order?");
         if (isAgreeToCancel === true) {
-            const url = `https://immense-plateau-20554.herokuapp.com/orders/${id}`;
+            const url = `https://e-bikes-server-side.onrender.com/orders/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -46,7 +46,7 @@ const ManageOrders = () => {
 
     // Status handling
     const handleProceedShipButton = id => {
-        const url = `https://immense-plateau-20554.herokuapp.com/orders/${id}`;
+        const url = `https://e-bikes-server-side.onrender.com/orders/${id}`;
         fetch(url, {
             method: "PUT",
             headers: {

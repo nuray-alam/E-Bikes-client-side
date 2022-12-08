@@ -13,7 +13,7 @@ const MyOrders = () => {
 
     //getting orders
     useEffect(() => {
-        fetch(`https://immense-plateau-20554.herokuapp.com/myOrders/${user.email}`)
+        fetch(`https://e-bikes-server-side.onrender.com/myOrders/${user.email}`)
             .then(res => res.json())
             .then(data => {
 
@@ -29,7 +29,7 @@ const MyOrders = () => {
     const handleCancelOrder = id => {
         let isAgreeToCancel = window.confirm("Are you sure cancel the order?");
         if (isAgreeToCancel === true) {
-            const url = `https://immense-plateau-20554.herokuapp.com/orders/${id}`;
+            const url = `https://e-bikes-server-side.onrender.com/orders/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

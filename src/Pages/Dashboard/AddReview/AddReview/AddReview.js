@@ -13,7 +13,7 @@ const AddReview = () => {
         const review = data;
         console.log("review", review)
         // positing the data to the server and db
-        fetch('https://immense-plateau-20554.herokuapp.com/review', {
+        fetch('https://e-bikes-server-side.onrender.com/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -6,7 +6,7 @@ const Blogs = () => {
     const [blogs, setBlogs] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     useEffect(() => {
-        fetch("https://immense-plateau-20554.herokuapp.com/blogs")
+        fetch("https://e-bikes-server-side.onrender.com/blogs")
             .then(res => res.json())
             .then(data => {
                 setBlogs(data);

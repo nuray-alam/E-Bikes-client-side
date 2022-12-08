@@ -17,7 +17,7 @@ const Order = (props) => {
     }
     // getting bike's full detail
     useEffect(() => {
-        fetch(`https://immense-plateau-20554.herokuapp.com/bike/${bikeId}`)
+        fetch(`https://e-bikes-server-side.onrender.com/bike/${bikeId}`)
             .then(res => res.json())
             .then(data => {
                 setBikeInfo(data);

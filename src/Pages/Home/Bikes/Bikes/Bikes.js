@@ -8,7 +8,7 @@ const Bikes = () => {
 
     //getting all bikes
     useEffect(() => {
-        fetch('https://immense-plateau-20554.herokuapp.com/bikes')
+        fetch('https://e-bikes-server-side.onrender.com/bikes')
             .then(res => res.json())
             .then(data => {
                 setBikes(data.slice(0, 6))

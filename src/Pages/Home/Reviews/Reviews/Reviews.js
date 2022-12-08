@@ -8,7 +8,7 @@ const Reviews = () => {
 
     //getting all bikes
     useEffect(() => {
-        fetch('https://immense-plateau-20554.herokuapp.com/review')
+        fetch('https://e-bikes-server-side.onrender.com/review')
             .then(res => res.json())
             .then(data => {
                 setReviews(data.slice(0, 6))

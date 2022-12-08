@@ -8,7 +8,7 @@ const ManageBikes = () => {
 
     // getting all orders
     useEffect(() => {
-        fetch('https://immense-plateau-20554.herokuapp.com/bikes')
+        fetch('https://e-bikes-server-side.onrender.com/bikes')
             .then(res => res.json())
             .then(data => {
                 setBikes(data);
@@ -20,7 +20,7 @@ const ManageBikes = () => {
     const handleDeleteBike = id => {
         let isAgreeToCancel = window.confirm("Are you sure to delete the bike?");
         if (isAgreeToCancel === true) {
-            const url = `https://immense-plateau-20554.herokuapp.com/bike/${id}`;
+            const url = `https://e-bikes-server-side.onrender.com/bike/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })

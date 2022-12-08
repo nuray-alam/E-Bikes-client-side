@@ -15,7 +15,7 @@ const OrderNow = () => {
 
     //getting bike detail by id
     useEffect(() => {
-        fetch(`https://immense-plateau-20554.herokuapp.com/bike/${id}`)
+        fetch(`https://e-bikes-server-side.onrender.com/bike/${id}`)
             .then(res => res.json())
             .then(data => {
                 setBikeInfo(data);
@@ -30,7 +30,7 @@ const OrderNow = () => {
         order.bikeId = id;
         order.status = "pending";
         // positing the data to the server and db
-        fetch('https://immense-plateau-20554.herokuapp.com/proceedOrder', {
+        fetch('https://e-bikes-server-side.onrender.com/proceedOrder', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
